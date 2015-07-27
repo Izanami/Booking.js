@@ -1,0 +1,6 @@
+<form {{action 'authenticate' on='submit'}}>
+    {{input-error error=errorMessage}}
+    {{input-text name="Courriel" field=email error=errorCourriel}}
+    {{input-text name="Mot de passe" field=password error=errorPassword type="password"}}
+    <button type="submit" {{action 'authenticate'}} class="button">Connexion</button>
+</form>

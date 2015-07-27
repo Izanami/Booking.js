@@ -1,0 +1,25 @@
+{{#if successMessage}}
+<div data-alert class="alert-box success">
+    Mot de passe modifié avec succès
+</div>
+{{/if}}
+
+<form {{action 'changePassword' on='submit'}}>
+    <div class="row">
+        <div class="large-12 columns">
+            {{input-text name="Mot de passe" field=password error=errorPassword type='password' placeholder=''}}
+            {{#if isValid}}
+            <label for="password">Confirmation du mot de passe</label>
+            {{input value=confirmPassword type='password' focus-out="didValid"}}
+            {{else}}
+            <label class="error" for="password">Confirmation du mot de passe</label>
+            {{input value=confirmPassword type='password' class="error" focus-out="didValid"}}
+            <small class="error">
+                Les mot de passes ne correspondent pas
+            </small>
+            {{/if}}
+            <button class="button {{unless isValid 'disable'}}">Changer le mot de passe</button>
+        </div>
+    </div>
+</form>
+

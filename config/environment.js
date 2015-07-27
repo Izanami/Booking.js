@@ -25,6 +25,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.api = "http://localhost:4567";
   }
 
   if (environment === 'test') {
@@ -43,5 +44,13 @@ module.exports = function(environment) {
 
   }
 
+  ENV['simple-auth'] = {
+      authorizer: 'authorizer:custom',
+      crossOriginWhitelist: [ENV.api]
+  };
+
+  ENV.contentSecurityPolicy = {
+      'connect-src': "'self' " + ENV.api
+  };
   return ENV;
 };
