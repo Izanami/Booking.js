@@ -10,14 +10,14 @@
     <form {{action 'changePassword' on='submit'}} data-abide>
         <div class="row">
             <div>
-                <label for="password">Mot de passe <small>requis</small></label>
-                {{input value=password placeholder='' pattern="^.{6,}$" type='password' required='true' id="password"}}
+                <label for="{{userId}}">Mot de passe <small>requis</small></label>
+                {{input value=password placeholder='' pattern="^.{6,}$" type='password' required='true' id=userId}}
                 <small class="error">Doit être supérieur à 6 caractères</small>
             </div>
 
             <div>
                 <label>Confirmation du mot de passe <small>requis</small>
-                    {{input placeholder='' type='password' required='true' data-equalto="password"}}
+                    {{input placeholder='' type='password' required='true' data-equalto=userId}}
                 </label>
                 <small class="error">Les mots de passes doivent correspondent</small>
             </div>

@@ -6,7 +6,7 @@ Ember.TextField.reopen({
 });
 
 export default Ember.Component.extend({
-    didInsertElement: function() {
+    didRender: function() {
         this.$().foundation('reflow', 'abide');
     },
 
