@@ -50,7 +50,8 @@ module.exports = function(environment) {
   };
 
   ENV.contentSecurityPolicy = {
-      'connect-src': "'self' " + ENV.api
+      'connect-src': "'self' " + ENV.api,
+      'style-src': "'self' 'unsafe-inline'"
   };
   return ENV;
 };

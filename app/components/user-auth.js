@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    didInsertElement: function() {
+        this.$().foundation('reflow', 'abide');
+    },
+
     actions: {
         authenticate: function() {
             var _this = this;
@@ -8,10 +12,8 @@ export default Ember.Component.extend({
 
             this.get('session').authenticate('authenticator:custom', credentials).then(function(){
                 _this.sendAction();
-            }, function(msg) {
-                _this.set('errorMessage', msg.error);
-                _this.set('errorCourriel', msg.errors.email);
-                _this.set('errorPassword', msg.errors.password);
+            }, function() {
+                _this.set('errorMessage', 'Identification échouée');
             });
         }
     }

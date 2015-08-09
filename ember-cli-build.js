@@ -22,6 +22,6 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/foundation/css/foundation.css');
   app.import(app.bowerDirectory + '/foundation/css/normalize.css');
   app.import(app.bowerDirectory + '/foundation-icon-fonts/foundation-icons.css');
-
+  app.import(app.bowerDirectory + '/foundation/js/foundation.js');
   return app.toTree();
 };

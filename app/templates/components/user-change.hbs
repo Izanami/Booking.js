@@ -4,22 +4,25 @@
 </div>
 {{/if}}
 
-<form {{action 'changePassword' on='submit'}}>
-    <div class="row">
-        <div class="large-12 columns">
-            {{input-text name="Mot de passe" field=password error=errorPassword type='password' placeholder=''}}
-            {{#if isValid}}
-            <label for="password">Confirmation du mot de passe</label>
-            {{input value=confirmPassword type='password' focus-out="didValid"}}
-            {{else}}
-            <label class="error" for="password">Confirmation du mot de passe</label>
-            {{input value=confirmPassword type='password' class="error" focus-out="didValid"}}
-            <small class="error">
-                Les mot de passes ne correspondent pas
-            </small>
-            {{/if}}
+{{input-error error=error}}
+
+<div class="large-12 columns">
+    <form {{action 'changePassword' on='submit'}} data-abide>
+        <div class="row">
+            <div>
+                <label for="password">Mot de passe <small>requis</small></label>
+                {{input value=password placeholder='' pattern="^.{6,}$" type='password' required='true' id="password"}}
+                <small class="error">Doit être supérieur à 6 caractères</small>
+            </div>
+
+            <div>
+                <label>Confirmation du mot de passe <small>requis</small>
+                    {{input placeholder='' type='password' required='true' data-equalto="password"}}
+                </label>
+                <small class="error">Les mots de passes doivent correspondent</small>
+            </div>
+
             <button class="button {{unless isValid 'disable'}}">Changer le mot de passe</button>
         </div>
-    </div>
-</form>
-
+    </form>
+</div>

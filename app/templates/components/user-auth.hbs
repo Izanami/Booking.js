@@ -1,6 +1,16 @@
-<form {{action 'authenticate' on='submit'}}>
+<form {{action 'authenticate' on='submit'}} data-abide>
     {{input-error error=errorMessage}}
-    {{input-text name="Courriel" field=email error=errorCourriel}}
-    {{input-text name="Mot de passe" field=password error=errorPassword type="password"}}
-    <button type="submit" {{action 'authenticate'}} class="button">Connexion</button>
+            <div>
+                <label>Courriel</label>
+                {{input value=email type='email' required='true'}}
+                <small class="error">Doit être une courriel valide</small>
+            </div>
+
+            <div>
+                <label>Mot de passe</label>
+                {{input value=password placeholder='' type='password' required='true'}}
+                <small class="error">Est requis</small>
+            </div>
+
+    <button type="submit" class="button">Connexion</button>
 </form>
