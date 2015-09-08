@@ -1,6 +1,6 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('revervation', 'Unit | Model | revervation', {
+moduleForModel('reservation', 'Unit | Model | reservation', {
   // Specify the other units that are required for this test.
   needs: []
 });

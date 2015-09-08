@@ -1,0 +1,30 @@
+<form {{action 'createReservation' on='submit'}}data-abide>
+    <div class="row">
+        <div class="large-12 columns">
+
+            <label>Courriel
+                {{input value=email}}
+            </label>
+
+            <div>
+                {{input type="checkbox" name="isPublic" checked=isPublic class="inline"}}
+                <label>Évènement publique</label>
+            </div>
+
+            <label>Usager
+                {{input value=user}}
+            </label>
+
+            <label>Nombre de personnes
+                {{input value=size type='number'}}
+            </label>
+
+
+            <label>Motif
+                {{input value=motif}}
+            </label>
+
+            <button class="button">Réserver !</button>
+        </div>
+    </div>
+</form>
