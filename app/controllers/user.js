@@ -21,7 +21,12 @@ export default Ember.Controller.extend({
 
     search: function() {
         var self = this;
-        this.store.query('user', {email: this.get('email')}).then(function(results) {
+        var re = new RegExp(self.get('email'));
+        this.store.findAll('user').then(function(results) {
+            if(self.get('email') !== '') {
+            results = results.filter(function(item) {
+                if (re.exec(item.get('email')) !== null) {return true;}
+            });}
             self.set('model', results);
         });
     }.observes('email'),
@@ -29,7 +34,6 @@ export default Ember.Controller.extend({
     actions: {
         search: function(email) {
             this.set('email', email);
-            this.search();
         }
     }
 });
