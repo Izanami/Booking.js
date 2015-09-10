@@ -1,28 +1,42 @@
-<form {{action 'createReservation' on='submit'}}data-abide>
+<form {{action 'createReservation' on='submit'}} data-abide id="createReservation">
     <div class="row">
         <div class="large-12 columns">
 
-            <label>Courriel
-                {{input value=email}}
-            </label>
-
             <div>
-                {{input type="checkbox" name="isPublic" checked=isPublic class="inline"}}
-                <label>Évènement publique</label>
+                <label>Courriel <small>requis</small></label>
+                {{input value=email required='true' type="email"}}
+                <small class="error">Un courriel valide est requis</small>
             </div>
 
-            <label>Usager
-                {{input value=user}}
-            </label>
+            {{#if setPassword}}
+            <div>
+                <label>Mot de passe <small>requis</small></label>
+                {{input value=password placeholder='' pattern="^.{6,}$" type='password' required='true'}}
+                <small class="error">Doit être supérieur à 6 caractères</small>
+            </div>
+            {{/if}}
 
-            <label>Nombre de personnes
-                {{input value=size type='number'}}
-            </label>
+            <div>{{contact-search store=store type="user" result=user}}</div>
+
+            <div>
+                <label>Nombre de personnes <small>requis</small></label>
+                {{input value=size type='number' required='true' pattern="^(100|[1-9][0-9]?)$" min="1" max="100"}}
+                <small class="error">Doit être compris entre 1 et 100</small>
+            </div>
 
 
-            <label>Motif
-                {{input value=motif}}
-            </label>
+            <div>
+                <label>Motif <small>requis</small></label>
+                {{input value=motif required='true'}}
+                <small class="error">Un motif est requis</small>
+            </div>
+
+            <div>
+                <label>
+                    {{input type="checkbox" name="isPublic" checked=isPublic class="inline"}}
+                    Évènement publique
+                </label>
+            </div>
 
             <button class="button">Réserver !</button>
         </div>

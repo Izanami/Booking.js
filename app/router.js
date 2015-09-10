@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('user');
   this.route('login');
   this.route('reservation');
+  this.route('contact');
 });
 
 export default Router;
