@@ -1,0 +1,37 @@
+<div class="row">
+    <div>
+        <label>Adresse</label>
+        {{input value=contact.address required='true' placeholder="74, avenue des Champs-Elysées"}}
+        <small>Une adresse est requise</small>
+    </div>
+
+    <div>
+        <label>Ville</label>
+        {{input value=contact.city list=cityId type="search" autocomplete="on" required='true' placeholder="Paris"}}
+        <small>Une ville est requise</small>
+        <datalist id="{{cityId}}">
+            {{#each listCity as |city|}}
+            <option value="{{contact-city city.display_name}}" label="{{contact-locality city.display_name}}" />
+            {{/each}}
+        </datalist>
+    </div>
+
+
+    <div>
+        <label>Téléphone</label>
+        {{input value=contact.phone type="tel" pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"}}
+        <small>Le numéro de téléphone est invalide</small>
+    </div>
+
+    <div>
+        <label>Téléphone portable</label>
+        {{input value=contact.portable type="tel" pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"}}
+        <small>Le numéro de téléphone est invalide</small>
+    </div>
+
+    <div>
+        <label>Courriel</label>
+        {{input type="email" value=contact.email}}
+        <small>L'adresse courriel doit être valide.</small>
+    </div>
+</div>

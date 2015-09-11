@@ -1,0 +1,187 @@
+/* Topography */
+h1 {
+    text-decoration: none;
+    border-bottom: dashed 1px #1EAEDB;
+}
+
+
+h2 {
+    font-size: 2em;
+    width: auto;
+    text-decoration: none;
+    border-bottom: dotted 1px #1EAEDB;
+}
+
+/* TopBar */
+nav.topBar {
+    z-index: 500;
+    background-color: rgba(30, 174, 219, 0.98);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    height: 42px;
+}
+
+nav.topBar ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav.topBar ul li {
+    list-style: none;
+    float: left;
+}
+
+nav.topBar ul li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px 25px;
+    color: white;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+nav.topBar ul li a:hover {
+}
+
+.container {
+    margin-top: 80px;
+}
+
+
+/* Alert */
+.alert-box {
+    color: white;
+    background-color: #1EAEDB;
+    padding: 10px;
+    transition: opacity 300ms ease-out 0s;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.alert-box.info {
+    background-color: #3498db;
+}
+
+.alert-box.success {
+    background-color: #2ecc71;
+}
+
+.alert-box.alert {
+    background-color: #c0392b;
+}
+
+/* Autorization */
+.autorization[data-autorization="1"]::after {
+    content: "Administrateur";
+}
+
+.autorization[data-autorization="0"]::after {
+    content: "Utilisateur";
+}
+
+/* Form */
+input+small {
+    font-size:0;
+}
+
+input:valid+small:before {
+    content: "✓";
+    font-size: large;
+}
+
+input:invalid+small:before {
+    content: "✗";
+    font-size: large;
+}
+
+input:invalid:focus~small {
+    font-size: 80%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"]
+{
+    width: 40%;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"]
+{
+    height: 38px;
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box; 
+}
+
+.tableSelect {
+    cursor: pointer;
+}
+
+
+.tableSelect:hover {
+    background-color: rgba(30, 174, 219, 0.1);
+}
+
+/* Search */
+.search {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.search span {
+    position: absolute;
+    right: 3px;
+    top: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    z-index: 9;
+}
+
+.search span::after {
+    content: "✘";
+    padding: 10px;
+}
+
+.search span:hover {
+    text-shadow: 2px 2px #1EAEDB;
+}
+
+.search input {
+    width: 100%;
+    border: 0;
+    font-weight: bold;
+    background: transparent;
+}
+
+.search .query
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-bottom: dashed 1px #1EAEDB;
+}
+
+.search .autocomplete {
+     color: #ccc;
+}
+
+.search input:focus {
+    border: 0;
+    border-bottom: dashed 1px #1EAEDB;
+    font-weight: bold;
+}
+

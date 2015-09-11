@@ -1,14 +1,16 @@
 import Ember from 'ember';
 import ENV from '../config/environment';
 
-Ember.TextField.reopen({
-  attributeBindings: ['data-equalto']
-});
-
 export default Ember.Component.extend({
-    didRender: function() {
-        this.$().foundation('reflow', 'abide');
-    },
+    validConfirm: function() {
+        var elts = this.$(".confirmPassword")[0];
+        if(elts !== undefined && this.get('password') !== this.get('confirmPassword')) {
+            elts.setCustomValidity("Les mots de passe ne correspond pas");
+        }
+        else {
+            elts.setCustomValidity("");
+        }
+    }.observes("confirmPassword", "password"),
 
     actions: {
         changePassword: function() {

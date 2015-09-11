@@ -19,9 +19,9 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import(app.bowerDirectory + '/foundation/css/foundation.css');
-  app.import(app.bowerDirectory + '/foundation/css/normalize.css');
-  app.import(app.bowerDirectory + '/foundation-icon-fonts/foundation-icons.css');
-  app.import(app.bowerDirectory + '/foundation/js/foundation.min.js');
+  app.import(app.bowerDirectory + '/skeleton/css/normalize.css');
+  app.import(app.bowerDirectory + '/skeleton/css/skeleton.css');
+  app.import(app.bowerDirectory + '/webshim/js-webshim/minified/polyfiller.js');
+  app.import(app.bowerDirectory + '/SpinKit/css/spinners/11-folding-cube.css');
   return app.toTree();
 };

@@ -1,10 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    didRender: function() {
-        this.$().foundation('reflow', 'abide');
-    },
-
     actions: {
         authenticate: function() {
             var _this = this;

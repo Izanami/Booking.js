@@ -8,6 +8,7 @@ export default Base.extend({
             if (!Ember.isEmpty(data.token)) {
                 resolve(data);
             } else {
+                //  TODO
                 reject();
             }
         });
@@ -34,6 +35,7 @@ export default Base.extend({
     },
 
     invalidate() {
+        // TODO
         return Ember.RSVP.resolve();
     }
 });

@@ -41,7 +41,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.api = "http://localhost:4567";
   }
 
   ENV['simple-auth'] = {
@@ -50,8 +50,10 @@ module.exports = function(environment) {
   };
 
   ENV.contentSecurityPolicy = {
-      'connect-src': "'self' " + ENV.api,
-      'style-src': "'self' 'unsafe-inline'"
+      'connect-src': "'self' https://nominatim.openstreetmap.org " + ENV.api,
+      'style-src': "'self' 'unsafe-inline'",
+      'font-src': "'self' data:",
+      'script-src': "'self'"
   };
   return ENV;
 };

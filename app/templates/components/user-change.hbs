@@ -7,19 +7,18 @@
 {{input-error error=error}}
 
 <div class="large-12 columns">
-    <form {{action 'changePassword' on='submit'}} data-abide>
+    <form {{action 'changePassword' on='submit'}}>
         <div class="row">
             <div>
-                <label for="{{userId}}">Mot de passe <small>requis</small></label>
-                {{input value=password placeholder='' pattern="^.{6,}$" type='password' required='true' id=userId}}
-                <small class="error">Doit être supérieur à 6 caractères</small>
+                <label>Mot de passe</label>
+                {{input value=password placeholder='' pattern="^.{6,}$" type='password' required='true'}}
+                <small>Doit être supérieur à 6 caractères</small>
             </div>
 
             <div>
-                <label>Confirmation du mot de passe <small>requis</small>
-                    {{input placeholder='' type='password' required='true' data-equalto=userId}}
-                </label>
-                <small class="error">Les mots de passes doivent correspondent</small>
+                <label>Confirmation du mot de passe</label>
+                {{input value=confirmPassword placeholder='' type='password' required='true' class="confirmPassword" }}
+                <small>Les mots de passes doivent correspondent</small>
             </div>
 
             <button type="submit" class="button">Changer le mot de passe</button>

@@ -1,44 +1,56 @@
-<form {{action 'createReservation' on='submit'}} data-abide id="createReservation">
-    <div class="row">
-        <div class="large-12 columns">
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Réserver</h1>
+        <form {{action 'createReservation' on='submit'}} id="createReservation">
+            <div class="row">
+                <div class="large-12 columns">
+                    <div>
+                        <label>Courriel</label>
+                        {{input value=email required='true' type="email" placeholder="john@doe.org"}}
+                        <small>Un courriel valide est requis</small>
+                    </div>
 
-            <div>
-                <label>Courriel <small>requis</small></label>
-                {{input value=email required='true' type="email"}}
-                <small class="error">Un courriel valide est requis</small>
+                    {{#if setPassword}}
+                    <div>
+                        <label>Mot de passe</label>
+                        {{input value=password placeholder='Votre mot de passe' pattern="^.{6,}$" type='password' required='true'}}
+                        <small>Doit être supérieur à 6 caractères</small>
+                    </div>
+                    {{/if}}
+
+
+                    <h2 class="u-cf">Date</h2>
+                    <div>
+                        <label>
+                            {{input type="checkbox" checked=isAllDay class="inline"}}
+                            Toute la journée
+                        </label>
+                    </div>
+                    {{#if isAllDay}}
+                    <div>
+                        {{input value=begin type='date' required='true' min=today}}
+                        au {{input value=end type='date' required='true' min=begin}}
+                        <small></small>
+                    </div>
+                    {{else}}
+                    <div>
+                        {{input value=begin type='datetime-local' required='true' min=today}}
+                        au {{input value=end type='datetime-local' required='true' min=begin}}
+                        <small></small>
+                    </div>
+                    {{/if}}
+                    {{#if nbDay}}
+                    <div>
+                        Soit {{nbDay}} jours
+                    </div>
+                    {{/if}}
+
+                    <h2 class="u-cf">Usager</h2>
+                    {{contact-search store=store}}
+
+                    <button class="button">Réserver !</button>
+                </div>
             </div>
-
-            {{#if setPassword}}
-            <div>
-                <label>Mot de passe <small>requis</small></label>
-                {{input value=password placeholder='' pattern="^.{6,}$" type='password' required='true'}}
-                <small class="error">Doit être supérieur à 6 caractères</small>
-            </div>
-            {{/if}}
-
-            <div>{{contact-search store=store type="user" result=user}}</div>
-
-            <div>
-                <label>Nombre de personnes <small>requis</small></label>
-                {{input value=size type='number' required='true' pattern="^(100|[1-9][0-9]?)$" min="1" max="100"}}
-                <small class="error">Doit être compris entre 1 et 100</small>
-            </div>
-
-
-            <div>
-                <label>Motif <small>requis</small></label>
-                {{input value=motif required='true'}}
-                <small class="error">Un motif est requis</small>
-            </div>
-
-            <div>
-                <label>
-                    {{input type="checkbox" name="isPublic" checked=isPublic class="inline"}}
-                    Évènement publique
-                </label>
-            </div>
-
-            <button class="button">Réserver !</button>
-        </div>
+        </form>
     </div>
-</form>
+</div>

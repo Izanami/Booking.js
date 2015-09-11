@@ -1,49 +1,38 @@
-{{outlet}}
+<div class="row search">
+            {{input placeholder="Rechercher un utilisateur" value=email class="query"}}
+            {{input value=suggestEmail disabled="disabled" class="autocomplete"}}
+            <span {{action 'search' ''}}></span>
+</div>
+
+{{#unless foundUser}}
+<div class="row">
+    <div data-alert class="alert-box info">
+        Aucun utilisateur trouvé.
+    </div>
+</div>
+{{/unless}}
 
 <div class="row">
-    <div class="large-12 columns">
-    {{#if searcher}}
-    <form>
-        <div class="row">
-            <div class="large-12 columns">
-                <div class="row collapse postfix-radius">
-                    <div class="small-11 columns">
-                        {{input placeholder="Rechercher un utilisateur" value=email}}
-                    </div>
-                    <div class="small-1 columns" {{action 'search' ''}}>
-                        <span class="postfix">
-                            <i class="fi-x"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    {{/if}}
-
-    {{#unless foundUser}}
-        <div class="row">
-            <div class="large-12 columns">
-                <div data-alert class="alert-box info">
-                    Aucun utilisateur trouvé.
-                </div>
-            </div>
-        </div>
-    {{/unless}}
-
-    {{#if multipleUser}}
-        <table>
-            <tbody>
-                {{#each model key="id" as |user|}}
-                <tr><td><a {{action "search" user.email}}>{{user.email}}</a></td></tr>
-                {{/each}}
-            </tbody>
-        </table>
-    {{else}}
+{{#if multipleUser}}
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <th>Courriel</th>
+            <th>Autorisation</th>
+        </tr>
+    </thead>
+    <tbody>
         {{#each model key="id" as |user|}}
-            <h2>{{user.email}}</h2>
-            {{user-change userId=user.id}}
+        <tr {{action "search" user.email}} class="tableSelect">
+            <td><a>{{user.email}}</a></td>
+            <td><span class="autorization" data-autorization="{{user.autorization}}"></span></td>
+        </tr>
         {{/each}}
-    {{/if}}
-</div>
+    </tbody>
+</table>
+{{else}}
+{{#each model key="id" as |user|}}
+{{user-change userId=user.id}}
+{{/each}}
+{{/if}}
 </div>

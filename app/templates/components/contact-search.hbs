@@ -1,76 +1,15 @@
-<label>Usager | 
-    {{#unless isValid}}
-    <small><a {{action 'add'}}><i class="fi-plus"></i> Ajouter</a></small>
-    {{else}}
-    <small><a><i class="fi-widget"></i> Modifier</a></small>
-    {{/unless}}
-</label>
+<!--List exists contact-->
 <div>
-    {{input value=name data-abide-validator="foundContact" data-dropdown=dropId id=type aria-controls=dropId required=true}}
-    <ul id="{{dropId}}" class="f-dropdown" data-dropdown-content>
+    <label>Nom complet</label>
+    {{input value=name list=Id required="true" class="name" placeholder="John Doe"}}
+    <small>Entrer prénom et nom ou le nom de l'entreprise</small>
+    <datalist id="{{Id}}">
         {{#each contacts as |contact|}}
-        <li {{action 'selector' contact.name}}><a>{{contact.name}}</a></li>
+         <option value="{{contact.name}}" />
         {{/each}}
-
-    {{#unless isValid}}
-        <li {{action 'add'}}><a><i class="fi-plus"></i> Ajouter "{{name}}"</a></li>
-    {{/unless}}
-</ul>
-    <small class="error" {{action 'add'}}>"{{name}}" n'existe pas, voulez vous l'ajouter ?</small>
+    </datalist>
 </div>
 
-<div id="add{{type}}" class="reveal-modal" data-reveal aria-hidden="'true'" role="dialog">
-    <h2 id="modalTitle">Créer le contact</h2>
-    {{input-error error=error}}
-    <form {{action 'create' on='submit'}} data-abide>
-        <div class="row">
-            <div>
-                <label>
-                    Nom <small>requis</small>
-                    {{input value=name type="text" required='true'}}
-                </label>
-                <small class="error">Un nom est requis</small>
-            </div>
+<!-- Add a contact-->
+{{contact-add contact=contact}}
 
-            <div>
-                <label>Adresse <small>requis</small></label>
-                {{input value=contactAddress required='true'}}
-                <small class="error">Une adresse est requise</small>
-            </div>
-
-            <div>
-                <label>Ville <small>requis</small></label>
-                {{input value=contactCity required='true'}}
-                <small class="error">Une ville est requise</small>
-            </div>
-
-            <div>
-                <label>Code postal <small>requis</small></label>
-                {{input value=contactZipcode required='true' pattern="[0-9]{5}" }}
-                <small class="error">Un code postal est requis et doit être de format valide</small>
-            </div>
-
-            <div>
-                <label>Téléphone</label>
-                {{input value=contactPhone type="tel" pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"}}
-                <small class="error">Le numéro de téléphone est invalide</small>
-            </div>
-
-            <div>
-                <label>Téléphone portable</label>
-                {{input value=contactPortable type="tel" pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"}}
-                <small class="error">Le numéro de téléphone est invalide</small>
-            </div>
-
-            <div>
-                <label>Courriel</label>
-                {{input type="email" value=contactEmail}}
-                <small class="error">L'adresse courriel doit être valide.</small>
-            </div>
-
-            <button type="submit" class="button">Créer le contact {{contactName}}</button>
-        </div>
-    </form>
-
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>

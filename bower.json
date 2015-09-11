@@ -12,11 +12,9 @@
     "jquery": "^1.11.3",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "qunit": "~1.18.0",
-    "ember-simple-auth": "0.8.0"
-  },
-  "devDependencies": {
-    "bower-foundation": "~4.0.0",
-    "foundation": "~5.5.2",
-    "foundation-icon-fonts": "*"
+    "ember-simple-auth": "0.8.0",
+    "skeleton": "~2.0.4",
+    "webshim": "~1.15.10",
+    "SpinKit": "spinkit#~1.2.2"
   }
 }
