@@ -37,24 +37,6 @@ export default Ember.Controller.extend({
         //console.log(this.get('begin'));
     }.observes('reservation.begin'),
 
-    didUser: function() {
-        var self = this;
-        this.store.query('user', {email: this.get('reservation.email')}).then(function(results) { // Search user within email
-            if(results.get('length') > 0) { // If found user
-                self.store.query('user', {current: "true"}).then(function(results) { // Get current user
-                    var current_user = results.get('firstObject');
-                    if (current_user !== undefined) { // If auth
-                        if ( (current_user.get('email') === self.get('email')) || (current_user.get('autorization') === 1)) { // If same user or admin
-                            self.set('setPassword', false); // Hide input password
-                        }
-                        else { self.set('setPassword', true); self.set('password', ''); } // Else show input
-                    }
-                    else { self.set('setPassword', true); self.set('password', ''); } // Else show input
-                });
-            }
-            else { self.set('setPassword', false); }
-        });
-    }.observes('reservation.email'),
 
     actions: {
         /* Create record */
@@ -68,6 +50,25 @@ export default Ember.Controller.extend({
                 console.log("SAVE");
             }, function(response) {                         // Else show error
                 self.set('error',  JSON.stringify(response));
+            });
+        },
+
+        didUser: function() {
+            var self = this;
+            this.store.query('user', {email: this.get('reservation.email')}).then(function(results) { // Search user within email
+                if(results.get('length') > 0) { // If found user
+                    self.store.query('user', {current: "true"}).then(function(results) { // Get current user
+                        var current_user = results.get('firstObject');
+                        if (current_user !== undefined) { // If auth
+                            if ( (current_user.get('email') === self.get('email')) || (current_user.get('autorization') === 1)) { // If same user or admin
+                                self.set('setPassword', false); // Hide input password
+                            }
+                            else { self.set('setPassword', true); self.set('password', ''); } // Else show input
+                        }
+                        else { self.set('setPassword', true); self.set('password', ''); } // Else show input
+                    });
+                }
+                else { self.set('setPassword', false); }
             });
         }
     }
