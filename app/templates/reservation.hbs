@@ -6,14 +6,14 @@
                 <div class="large-12 columns">
                     <div>
                         <label>Courriel</label>
-                        {{input value=email required='true' type="email" placeholder="john@doe.org"}}
+                        {{input value=reservation.email required='true' type="email" placeholder="john@doe.org"}}
                         <small>Un courriel valide est requis</small>
                     </div>
 
                     {{#if setPassword}}
                     <div>
                         <label>Mot de passe</label>
-                        {{input value=password placeholder='Votre mot de passe' pattern="^.{6,}$" type='password' required='true'}}
+                        {{input value=reservation.password placeholder='Votre mot de passe' pattern="^.{6,}$" type='password' required='true'}}
                         <small>Doit être supérieur à 6 caractères</small>
                     </div>
                     {{/if}}
@@ -35,14 +35,14 @@
                     </div>
                     {{#if isAllDay}}
                     <div>
-                        {{input value=begin type='date' required='true' min=today}}
-                        au {{input value=end type='date' required='true' min=begin}}
+                        {{input value=reservation.begin type='date' required='true' min=today}}
+                        au {{input value=reservation.end type='date' required='true' min=reservation.begin}}
                         <small></small>
                     </div>
                     {{else}}
                     <div>
-                        {{input value=begin type='datetime-local' required='true' min=today}}
-                        au {{input value=end type='datetime-local' required='true' min=begin}}
+                        {{input value=reservation.begin type='datetime-local' required='true' min=today}}
+                        au {{input value=reservation.end type='datetime-local' required='true' min=reservation.begin}}
                         <small></small>
                     </div>
                     {{/if}}
@@ -51,7 +51,6 @@
                         Soit {{nbDay}} jours
                     </div>
                     {{/if}}
-
 
                     <button type="submit ">Je réserve !</button>
                 </div>
