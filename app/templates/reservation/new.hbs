@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Réserver</h1>
+        <form {{action 'createReservation' on='submit'}} id="createReservation">
+            <div class="row">
+                    {{input-error error=error}}
+                    <div>
+                        <label>Courriel</label>
+                        {{input value=email required='true' focus-out="didUser" type="email" placeholder="john@doe.org"}}
+                        <small>Le courriel pour vous contacter</small>
+                    </div>
+
+                    {{#if setPassword}}
+                    <div>
+                        <label>Mot de passe</label>
+                        {{input value=password placeholder='Votre mot de passe' pattern="^.{6,}$" type='password' required='true'}}
+                        <small>Doit être supérieur à 6 caractères</small>
+                    </div>
+                    {{/if}}
+
+                    <div>
+                        <label>
+                            {{input type="checkbox" checked=isSame class="inline"}}
+                            Je serais l'usagé de la salle
+                        </label>
+                    </div>
+
+                    <h2 class="u-cf">Date</h2>
+                    <div>
+                        <label>
+                            {{input type="checkbox" checked=isAllDay class="inline"}}
+                            Toute la journée
+                        </label>
+                    </div>
+                    {{#if isAllDay}}
+                    <div>
+                        {{input value=begin type='date' required='true' min=today}}
+                        au {{input value=end type='date' required='true' min=begin}}
+                        <small></small>
+                    </div>
+                    {{else}}
+                    <div>
+                        {{input value=begin type='datetime-local' required='true' min=today}}
+                        au {{input value=end type='datetime-local' required='true' min=begin}}
+                        <small></small>
+                    </div>
+                    {{/if}}
+                    {{#if nbDay}}
+                    <div>
+                        Soit {{nbDay}} jours
+                    </div>
+                    {{/if}}
+
+                    <h2 class="u-cf">Utilisation</h2>
+                    <div>
+                        <label>
+                            {{input type="checkbox" checked=isPublic}}
+                            L'évènement sera visible de tous
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>Motif</label>
+                        {{input list="motif" value=motif required='true' placeholder="Anniversaire"}}
+                        <small>Entrée ou sélectionner le motif d'utilisation</small>
+                        <datalist id="motif">
+                            <option value="Anniversaire" />
+                            <option value="Mariage" />
+                        </datalist>
+                    </div>
+
+                    <div>
+                        <label>Nombre de personne</label>
+                            {{input value=size type="number" min="1" max="100"}}
+                    </div>
+
+                    <input class="button-primary" value="Continuer →" type="submit">
+            </div>
+        </form>
+    </div>
+</div>

@@ -6,9 +6,11 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('reservation', function() {
+    this.route('new');
+  });
   this.route('user');
   this.route('login');
-  this.route('reservation');
   this.route('contact');
 });
 
