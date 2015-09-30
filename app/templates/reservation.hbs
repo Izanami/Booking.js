@@ -3,7 +3,7 @@
         <h1>Réserver</h1>
         <form {{action 'createReservation' on='submit'}} id="createReservation">
             <div class="row">
-
+                    {{input-error error=error}}
                     <div>
                         <label>Courriel</label>
                         {{input value=email required='true' focus-out="didUser" type="email" placeholder="john@doe.org"}}
