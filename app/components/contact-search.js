@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     contact: {},
 
 
-    validator: function (name) {
+    validator: function () {
         var self = this;
         var elts = this.$(".name")[0];
         var name = this.get('name');
@@ -38,6 +38,8 @@ export default Ember.Component.extend({
 
     didInsertElement: function() {
         var store = this.get('store');
+        if(store === undefined)
+            {return false;}
         var contacts = store.query('contact', {name: this.get('name')});
         this.set('contacts', contacts);
     },

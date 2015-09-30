@@ -13,7 +13,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{application-topbar}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Lacadée-Mounet\n        Réverser !\n        Gestion des utilisateurs');
 
   // Template block usage:
   this.render(hbs`
@@ -22,5 +22,5 @@ test('it renders', function(assert) {
     {{/application-topbar}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'Lacadée-Mounet\n        Réverser !\n        Gestion des utilisateurs');
 });

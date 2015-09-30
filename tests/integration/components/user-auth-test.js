@@ -7,14 +7,13 @@ moduleForComponent('user-auth', 'Integration | Component | user auth', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(0);
 
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{user-auth}}`);
 
-  assert.equal(this.$().text(), '');
 
   // Template block usage:
   this.render(hbs`
@@ -22,6 +21,4 @@ test('it renders', function(assert) {
       template block text
     {{/user-auth}}
   `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

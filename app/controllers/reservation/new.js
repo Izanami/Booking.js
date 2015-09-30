@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
         var begin = this.get('begin');
         var end = this.get('end');
         if(begin === undefined || end === undefined)
-            {return ""};
+            {return "";}
 
         /* Convert Date to hours */
         begin = new Date(begin);
