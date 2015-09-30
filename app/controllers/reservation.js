@@ -29,13 +29,13 @@ export default Ember.Controller.extend({
             {return 1;}
         else
             {return diff;}
-    }.property('reservation.begin', 'reservation.end'),
+    }.property('begin', 'end'),
 
     changeBegin: function() {
-        this.set('end',  this.get('reservation.begin'));
+        this.set('end',  this.get('begin'));
         //Ember.$('input[type="date"]').trigger('change');
         //console.log(this.get('begin'));
-    }.observes('reservation.begin'),
+    }.observes('begin'),
 
 
     actions: {
@@ -44,7 +44,16 @@ export default Ember.Controller.extend({
             var self = this;
             var store = this.get('store');
 
-            var reservation = store.createRecord('reservation', reservation);
+            var begin = new Date(this.get('begin'));
+            var end = new Date(this.get('end'));
+
+            var reservation = store.createRecord('reservation', {
+                isPublic: this.get('isPublic'),
+                size: this.get('size'),
+                motif: this.get('motif'),
+                begin: begin,
+                end: end
+            });
 
             reservation.save().then(function() {                // If has create record
                 console.log("SAVE");
@@ -55,7 +64,7 @@ export default Ember.Controller.extend({
 
         didUser: function() {
             var self = this;
-            this.store.query('user', {email: this.get('reservation.email')}).then(function(results) { // Search user within email
+            this.store.query('user', {email: this.get('email')}).then(function(results) { // Search user within email
                 if(results.get('length') > 0) { // If found user
                     self.store.query('user', {current: "true"}).then(function(results) { // Get current user
                         var current_user = results.get('firstObject');
