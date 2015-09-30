@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
     isAllDay: true,
     today:  new Date().toJSON().split('T')[0],
+    isSame: true,
 
     nbDay: function() {
         var begin = this.get('begin');

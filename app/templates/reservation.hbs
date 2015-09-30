@@ -18,6 +18,13 @@
                     </div>
                     {{/if}}
 
+                    <div>
+                        <label>
+                            {{input type="checkbox" checked=isSame class="inline"}}
+                            Je serais l'usagé de la salle
+                        </label>
+                    </div>
+
 
                     <h2 class="u-cf">Date</h2>
                     <div>
@@ -45,10 +52,8 @@
                     </div>
                     {{/if}}
 
-                    <h2 class="u-cf">Usager</h2>
-                    {{contact-search store=store}}
 
-                    <button class="button">Réserver !</button>
+                    <button type="submit ">Je réserve !</button>
                 </div>
             </div>
         </form>
