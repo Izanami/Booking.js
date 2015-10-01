@@ -6,7 +6,7 @@
 
 {{input-error error=error}}
 
-<div class="large-12 columns">
+<div class="row">
     <form {{action 'changePassword' on='submit'}}>
         <div class="row">
             <div id="password">
@@ -21,7 +21,7 @@
                 <small>Les mots de passes doivent correspondent</small>
             </div>
 
-            <button type="submit" class="button">Changer le mot de passe</button>
+            <input type="submit" value="Changer le mot de passe" />
         </div>
     </form>
 </div>
