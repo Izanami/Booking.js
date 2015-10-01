@@ -1,5 +1,11 @@
 {{#if error}}
-<div data-alert class="alert-box alert">
-    {{error}}
+<div class="alert-box alert">
+    <div id="errorMsg">
+        {{error.message}}
+    </div>
+
+    <div id="errorField">
+        {{error-field error.errors}}
+    </div>
 </div>
 {{/if}}

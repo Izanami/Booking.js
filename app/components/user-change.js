@@ -27,7 +27,7 @@ export default Ember.Component.extend({
             function(xhr) {
                 var response = JSON.parse(xhr.responseText);
                 _this.set('successMessage', false);
-                _this.set('error',  JSON.stringify(response));
+                _this.set('error',  response);
             });
         }
     }

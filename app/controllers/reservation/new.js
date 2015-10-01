@@ -58,7 +58,7 @@ export default Ember.Controller.extend({
             reservation.save().then(function() {                // If has create record
                 console.log("SAVE");
             }, function(response) {                         // Else show error
-                self.set('error',  JSON.stringify(response));
+                self.set('error', response);
             });
         },
 
