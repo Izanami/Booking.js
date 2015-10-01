@@ -9,13 +9,13 @@
 <div class="large-12 columns">
     <form {{action 'changePassword' on='submit'}}>
         <div class="row">
-            <div>
+            <div id="password">
                 <label>Mot de passe</label>
                 {{input value=password placeholder='' pattern="^.{6,}$" type='password' required='true'}}
                 <small>Doit être supérieur à 6 caractères</small>
             </div>
 
-            <div>
+            <div id="confirmPassword">
                 <label>Confirmation du mot de passe</label>
                 {{input value=confirmPassword placeholder='' type='password' required='true' class="confirmPassword" }}
                 <small>Les mots de passes doivent correspondent</small>
