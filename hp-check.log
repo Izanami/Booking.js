@@ -1,0 +1,276 @@
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mHP Linux Imaging and Printing System (ver. 3.15.9)[0m
+hp-check[3574]: info: :[01mDependency/Version Check Utility ver. 15.1[0m
+hp-check[3574]: info: :
+hp-check[3574]: info: :Copyright (c) 2001-15 Hewlett-Packard Development Company, LP
+hp-check[3574]: info: :This software comes with ABSOLUTELY NO WARRANTY.
+hp-check[3574]: info: :This is free software, and you are welcome to distribute it
+hp-check[3574]: info: :under certain conditions. See COPYING file for more details.
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mNote: hp-check can be run in three modes:[0m
+hp-check[3574]: info: :1. Compile-time check mode (-c or --compile): Use this mode before compiling the HPLIP supplied tarball (.tar.gz or .run) to determine if the proper  
+hp-check[3574]: info: :dependencies are installed to successfully compile HPLIP.                                                                                             
+hp-check[3574]: info: :2. Run-time check mode (-r or --run): Use this mode to determine if a distro supplied package (.deb, .rpm, etc) or an already built HPLIP supplied    
+hp-check[3574]: info: :tarball has the proper dependencies installed to successfully run.                                                                                    
+hp-check[3574]: info: :3. Both compile- and run-time check mode (-b or --both) (Default): This mode will check both of the above cases (both compile- and run-time           
+hp-check[3574]: info: :dependencies).                                                                                                                                        
+hp-check[3574]: info: :
+hp-check[3574]: info: :Check types:                                                                                                                                          
+hp-check[3574]: info: :a. EXTERNALDEP - External Dependencies                                                                                                                
+hp-check[3574]: info: :b. GENERALDEP - General Dependencies (required both at compile and run time)                                                                          
+hp-check[3574]: info: :c. COMPILEDEP - Compile time Dependencies                                                                                                             
+hp-check[3574]: info: :d. [All are run-time checks]                                                                                                                          
+hp-check[3574]: info: :PYEXT SCANCONF QUEUES PERMISSION                                                                                                                      
+hp-check[3574]: info: :
+hp-check[3574]: info: :Status Types:
+hp-check[3574]: info: :    OK
+hp-check[3574]: info: :    MISSING       - Missing Dependency or Permission or Plug-in
+hp-check[3574]: info: :    INCOMPAT      - Incompatible dependency-version or Plugin-version
+hp-check[3574]: info: :
+warning: arch distro is not found in AUTH_TYPES
+warning: [01munknown- version is not supported. Using unknown-0 versions dependencies to verify and install...[0m
+hp-check[3574]: info: :
+hp-check[3574]: info: :---------------
+hp-check[3574]: info: :| SYSTEM INFO |
+hp-check[3574]: info: :---------------
+hp-check[3574]: info: :
+hp-check[3574]: info: : Kernel: 4.2.2-1-ARCH #1 SMP PREEMPT Tue Sep 29 22:21:33 CEST 2015 GNU/Linux
+ Host: athena
+ Proc: 4.2.2-1-ARCH #1 SMP PREEMPT Tue Sep 29 22:21:33 CEST 2015 GNU/Linux
+ Distribution: unknown 
+hp-check[3574]: info: : Bitness: 64 bit
+
+hp-check[3574]: info: :
+hp-check[3574]: info: :-----------------------
+hp-check[3574]: info: :| HPLIP CONFIGURATION |
+hp-check[3574]: info: :-----------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: :HPLIP-Version: HPLIP 3.15.9
+hp-check[3574]: info: :HPLIP-Home: /usr/share/hplip
+warning: HPLIP-Installation: Auto installation is not supported for unknown distro   version 
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mCurrent contents of '/etc/hp/hplip.conf' file:[0m
+hp-check[3574]: info: :# hplip.conf.  Generated from hplip.conf.in by configure.
+
+[hplip]
+version=3.15.9
+
+[dirs]
+home=/usr/share/hplip
+run=/var/run
+ppd=/usr/share/ppd/HP
+ppdbase=/usr/share/ppd
+doc=/usr/share/doc/hplip-3.15.9
+html=/usr/share/doc/hplip-3.15.9
+icon=/usr/share/applications
+cupsbackend=/usr/lib/cups/backend
+cupsfilter=/usr/lib/cups/filter
+drv=/usr/share/cups/drv/hp
+bin=/usr/bin
+
+# Following values are determined at configure time and cannot be changed.
+[configure]
+network-build=yes
+libusb01-build=no
+pp-build=yes
+gui-build=yes
+scanner-build=yes
+fax-build=yes
+dbus-build=yes
+cups11-build=no
+doc-build=yes
+shadow-build=no
+hpijs-install=yes
+foomatic-drv-install=yes
+foomatic-ppd-install=yes
+foomatic-rip-hplip-install=no
+hpcups-install=yes
+cups-drv-install=yes
+cups-ppd-install=yes
+internal-tag=3.15.9
+restricted-build=no
+ui-toolkit=qt4
+qt3=no
+qt4=yes
+policy-kit=no
+lite-build=no
+udev_sysfs_rules=no
+hpcups-only-build=no
+hpijs-only-build=no
+
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mCurrent contents of '/var/lib/hp/hplip.state' file:[0m
+hp-check[3574]: info: :[plugin]
+installed = 1
+eula = 1
+version = 3.15.9
+
+
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mCurrent contents of '~/.hplip/hplip.conf' file:[0m
+hp-check[3574]: info: :[last_used]
+device_uri = "hp:/net/HP_Color_LaserJet_CM1312nfi_MFP?ip=192.168.1.17"
+printer_name = HP_Color_LaserJet_CM1312nfi_MFP
+working_dir = .
+
+[settings]
+systray_visible = 0
+systray_messages = 0
+
+[commands]
+scan = /usr/bin/xsane -V %SANE_URI%
+
+[refresh]
+rate = 30
+enable = false
+type = 1
+
+[polling]
+enable = false
+interval = 5
+device_list = 
+
+[fax]
+voice_phone = 
+email_address = 
+
+[upgrade]
+notify_upgrade = false
+last_upgraded_time = 1426814325
+pending_upgrade_time = 0
+
+[installation]
+date_time = 10/08/15 14:27:38
+version = 3.15.9
+
+
+hp-check[3574]: info: : <Package-name>        <Package-Desc>      <Required/Optional> <Min-Version> <Installed-Version> <Status>   <Comment>
+hp-check[3574]: info: :
+hp-check[3574]: info: :--------------------------
+hp-check[3574]: info: :|  External Dependencies |
+hp-check[3574]: info: :--------------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: : xsane                xsane - Graphical scanner frontend for SANE                  OPTIONAL        0.9             0.999           OK         -
+hp-check[3574]: info: : avahi-utils          avahi-utils                                                  OPTIONAL        -               0.6.31          OK         -
+hp-check[3574]: info: : dbus                 DBus - Message bus system                                    REQUIRED        -               1.10.0          OK         -
+hp-check[3574]: info: : gs                   GhostScript - PostScript and PDF language interpreter and previewer REQUIRED        7.05            9.16            OK         -
+hp-check[3574]: info: : network              network -wget                                                OPTIONAL        -               1.16.3          OK         -
+hp-check[3574]: info: : scanimage            scanimage - Shell scanning program                           OPTIONAL        1.0             1.0.24          OK         -
+hp-check[3574]: info: : policykit            PolicyKit - Administrative policy framework                  OPTIONAL        -               0.113           OK         -
+hp-check[3574]: info: : cups                 CUPS - Common Unix Printing System                           REQUIRED        1.1             2.1.0           OK         'CUPS Scheduler is running'
+hp-check[3574]: info: :
+hp-check[3574]: info: :-------------------------
+hp-check[3574]: info: :|  General Dependencies |
+hp-check[3574]: info: :-------------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: : cups-image           CUPS image - CUPS image development files                    REQUIRED        -               2.1.0           OK         -
+hp-check[3574]: info: : python3-pyqt4-dbus   PyQt 4 DBus - DBus Support for PyQt4                         OPTIONAL        4.0             4.11.4          OK         -
+hp-check[3574]: info: : cups-devel           CUPS devel- Common Unix Printing System development files    REQUIRED        -               2.1.0           OK         -
+hp-check[3574]: info: : python3X             Python 2.2 or greater - Python programming language          REQUIRED        2.2             3.5.0           OK         -
+hp-check[3574]: info: :[31;01m error: python3-notify2 Python libnotify - Python bindings for the libnotify Desktop notifications OPTIONAL        -               -               MISSING    'python3-notify2 needs to be installed'[0m
+hp-check[3574]: info: : libjpeg              libjpeg - JPEG library                                       REQUIRED        -               -               OK         -
+hp-check[3574]: info: : libcrypto            libcrypto - OpenSSL cryptographic library                    REQUIRED        -               1.0.2           OK         -
+hp-check[3574]: info: : python3-pil          PIL - Python Imaging Library (required for commandline scanning with hp-scan) OPTIONAL        -               1.1.7           OK         -
+hp-check[3574]: info: : python3-reportlab    Reportlab - PDF library for Python                           OPTIONAL        2.0             3.2.0           OK         -
+hp-check[3574]: info: : sane                 SANE - Scanning library                                      REQUIRED        -               1.0.24          OK         -
+hp-check[3574]: info: : libusb               libusb - USB library                                         REQUIRED        -               1.0             OK         -
+hp-check[3574]: info: : libpthread           libpthread - POSIX threads library                           REQUIRED        -               b'2.22'         OK         -
+hp-check[3574]: info: : sane-devel           SANE - Scanning library development files                    REQUIRED        -               1.0.24          OK         -
+hp-check[3574]: info: : python3-xml          Python XML libraries                                         REQUIRED        -               2.1.0           OK         -
+hp-check[3574]: info: : python3-devel        Python devel - Python development files                      REQUIRED        2.2             3.5.0           OK         -
+hp-check[3574]: info: : python3-pyqt4        PyQt 4- Qt interface for Python (for Qt version 4.x)         REQUIRED        4.0             4.11.4          OK         -
+hp-check[3574]: info: : libnetsnmp-devel     libnetsnmp-devel - SNMP networking library development files REQUIRED        5.0.9           5.7.3           OK         -
+hp-check[3574]: info: : python3-dbus         Python DBus - Python bindings for DBus                       REQUIRED        0.80.0          1.2.0           OK         -
+hp-check[3574]: info: :
+hp-check[3574]: info: :---------------
+hp-check[3574]: info: :|  COMPILEDEP |
+hp-check[3574]: info: :---------------
+hp-check[3574]: info: :
+hp-check[3574]: info: : gcc                  gcc - GNU Project C and C++ Compiler                         REQUIRED        -               5.2.0           OK         -
+hp-check[3574]: info: : make                 make - GNU make utility to maintain groups of programs       REQUIRED        3.0             4.1             OK         -
+hp-check[3574]: info: : libtool              libtool - Library building support services                  REQUIRED        -               2.4.6           OK         -
+hp-check[3574]: info: :
+hp-check[3574]: info: :----------------------
+hp-check[3574]: info: :|  Python Extentions |
+hp-check[3574]: info: :----------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: : hpmudext             IO-Extension                                                 REQUIRED        -               3.15.9          OK         -
+hp-check[3574]: info: : cupsext              CUPS-Extension                                               REQUIRED        -               3.15.9          OK         -
+hp-check[3574]: info: :
+hp-check[3574]: info: :-----------------------
+hp-check[3574]: info: :|  Scan Configuration |
+hp-check[3574]: info: :-----------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: : hpaio                HPLIP-SANE-Backend                                           REQUIRED        -               3.15.9          OK         'hpaio found in /etc/sane.d/dll.conf'
+hp-check[3574]: info: : scanext              Scan-SANE-Extension                                          REQUIRED        -               3.15.9          OK         -
+hp-check[3574]: info: :
+hp-check[3574]: info: :-----------------------
+hp-check[3574]: info: :|  Other Dependencies |
+hp-check[3574]: info: :-----------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: :
+hp-check[3574]: info: :------------------------------
+hp-check[3574]: info: :| DISCOVERED SCANNER DEVICES |
+hp-check[3574]: info: :------------------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: :device `hpaio:/net/HP_Color_LaserJet_CM1312nfi_MFP?ip=192.168.1.17' is a Hewlett-Packard HP_Color_LaserJet_CM1312nfi_MFP all-in-one
+
+hp-check[3574]: info: :
+hp-check[3574]: info: :--------------------------
+hp-check[3574]: info: :| DISCOVERED USB DEVICES |
+hp-check[3574]: info: :--------------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: :No devices found.
+hp-check[3574]: info: :
+hp-check[3574]: info: :---------------------------------
+hp-check[3574]: info: :| INSTALLED CUPS PRINTER QUEUES |
+hp-check[3574]: info: :---------------------------------
+hp-check[3574]: info: :
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mHP_Color_LaserJet_CM1312nfi_MFP[0m
+hp-check[3574]: info: :[01m-------------------------------[0m
+hp-check[3574]: info: :Type: Printer
+hp-check[3574]: info: :Device URI: hp:/net/HP_Color_LaserJet_CM1312nfi_MFP?ip=192.168.1.17
+hp-check[3574]: info: :PPD: /etc/cups/ppd/HP_Color_LaserJet_CM1312nfi_MFP.ppd
+warning: Failed to read /etc/cups/ppd/HP_Color_LaserJet_CM1312nfi_MFP.ppd ppd file
+hp-check[3574]: info: :PPD Description: 
+hp-check[3574]: info: :Printer status: printer HP_Color_LaserJet_CM1312nfi_MFP is idle.  enabled since jeu. 08 oct. 2015 14:17:21 CEST
+hp-check[3574]: info: :Required plug-in status: Installed
+hp-check[3574]: info: :Communication status: Good
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mHP_Color_LaserJet_CM1312nfi_MFP_fax[0m
+hp-check[3574]: info: :[01m-----------------------------------[0m
+hp-check[3574]: info: :Type: Fax
+hp-check[3574]: info: :Device URI: hpfax:/net/HP_Color_LaserJet_CM1312nfi_MFP?ip=192.168.1.17
+hp-check[3574]: info: :PPD: /etc/cups/ppd/HP_Color_LaserJet_CM1312nfi_MFP_fax.ppd
+warning: Failed to read /etc/cups/ppd/HP_Color_LaserJet_CM1312nfi_MFP_fax.ppd ppd file
+hp-check[3574]: info: :PPD Description: 
+hp-check[3574]: info: :Printer status: printer HP_Color_LaserJet_CM1312nfi_MFP_fax is idle.  enabled since jeu. 08 oct. 2015 14:17:23 CEST
+error: Incorrect PPD file for fax queue 'HP_Color_LaserJet_CM1312nfi_MFP_fax'. Fax queues must use 'HP-Fax-hplip.ppd'.
+hp-check[3574]: info: :Required plug-in status: Installed
+hp-check[3574]: info: :Communication status: Good
+hp-check[3574]: info: :
+hp-check[3574]: info: :
+hp-check[3574]: info: :--------------
+hp-check[3574]: info: :| PERMISSION |
+hp-check[3574]: info: :--------------
+hp-check[3574]: info: :
+hp-check[3574]: info: :
+hp-check[3574]: info: :-----------
+hp-check[3574]: info: :| SUMMARY |
+hp-check[3574]: info: :-----------
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mMissing Required Dependencies[0m
+hp-check[3574]: info: :[01m-----------------------------[0m
+hp-check[3574]: info: :None
+hp-check[3574]: info: :
+hp-check[3574]: info: :[01mMissing Optional Dependencies[0m
+hp-check[3574]: info: :[01m-----------------------------[0m
+hp-check[3574]: info: :None
+
+hp-check[3574]: info: :
+hp-check[3574]: info: :Total Errors: 2
+hp-check[3574]: info: :Total Warnings: 0
+hp-check[3574]: info: :
+hp-check[3574]: info: :
+hp-check[3574]: info: :Done.

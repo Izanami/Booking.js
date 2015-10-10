@@ -1,9 +1,23 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import Ember from 'ember';
+import startApp from '../../helpers/start-app';
 
+var App;
+var store;
+var session;
 
 moduleForComponent('user-change', 'Integration | Component | user change', {
-  integration: true
+  integration: true,
+  setup: function () {
+    App     = startApp();
+    store   = App.__container__.lookup('store:main');
+    session = App.__container__.lookup('simple-auth-session:main');
+  },
+
+  teardown: function () {
+    Ember.run(App, App.destroy);
+  }
 });
 
 test('it renders', function(assert) {
@@ -31,6 +45,11 @@ test('it renders', function(assert) {
   assert.equal(this.$("#confirmPassword input").checkValidity(), true);
   this.$("input[type=submit]").click();
 
+  //TODO: connect
+  //
+  session.authenticate('authenticator:custom', {email: "admin@example.org", password: "123456"});
+  console.log(store.findAll('user'));
+  //console.log(session);
 
   // Template block usage:
   this.render(hbs`
